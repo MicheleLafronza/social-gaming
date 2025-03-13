@@ -46,8 +46,14 @@
             <!-- Desktop User Menu -->
             <flux:dropdown position="top" align="end">
                 <flux:profile
-                    class="cursor-pointer"
+                    class="cursor-pointer sm:hidden"
                     :initials="auth()->user()->initials()"
+                />
+
+                <flux:profile
+                    class="cursor-pointer hidden sm:flex"
+                    :initials="auth()->user()->initials()"
+                    :name="auth()->user()->nickname"
                 />
 
                 <flux:menu>
@@ -60,6 +66,7 @@
                                     >
                                         {{ auth()->user()->initials() }}
                                     </span>
+                                    
                                 </span>
 
                                 <div class="grid flex-1 text-left text-sm leading-tight">
