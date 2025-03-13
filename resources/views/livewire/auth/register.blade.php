@@ -36,7 +36,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
 }; ?>
 
 <div class="flex flex-col gap-6">
-    <x-auth-header :title="__('Crea il tuo account')" :description="__('Inserisci i dettagli del per creare il tuo account')" />
+    <x-auth-header :title="__('Crea il tuo account')" :description="__('Inserisci i dettagli per creare il tuo account')" />
 
     <!-- Session Status -->
     <x-auth-session-status class="text-center" :status="session('status')" />
