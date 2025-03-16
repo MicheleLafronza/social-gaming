@@ -21,10 +21,7 @@ class CreateGame extends Component
             
         $twitchClientId = env('TWITCH_CLIENT_ID');
             
-        $response = Http::withOptions([
-            'verify' => false,
-        ])
-        ->withHeaders([
+        $response = Http::withHeaders([
             'Client-ID' => $twitchClientId,
             'Authorization' => 'Bearer ' . $twitchAccessToken,
         ])

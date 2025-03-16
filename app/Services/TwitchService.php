@@ -41,10 +41,7 @@ class TwitchService
             
         // chiamo l'endpoint di twitch per generare il token
         // client_id e client_secret sono le credenziali che ho creato su twitch
-            $response = Http::withOptions([
-                'verify' => false,
-            ])
-            ->post('https://id.twitch.tv/oauth2/token', [
+            $response = Http::post('https://id.twitch.tv/oauth2/token', [
                 'client_id' => $this->twitchClientId,
                 'client_secret' => $this->twitchClientSecret,
                 'grant_type' => 'client_credentials'
