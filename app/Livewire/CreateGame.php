@@ -12,10 +12,12 @@ class CreateGame extends Component
 {
     public $gameName = '';
     public $games = [];
+    public $emptyGames = false;
 
-    public function submitGameName(): array 
+    public function submitGameName()
     {
         $this->games = [];
+        $this->emptyGames = false;
         $twitchService = app(TwitchService::class);
         $twitchAccessToken = $twitchService->getTwitchToken();
             
@@ -31,8 +33,11 @@ class CreateGame extends Component
         ]);
         $this->games = json_decode($response->getBody()->getContents());
         // dd($this->games);
-        return $this->games;
-            
+        if (count($this->games) > 0) {
+            return $this->games;
+        } else {
+            return $this->emptyGames = true;
+        }      
     }
 
     public function render()
