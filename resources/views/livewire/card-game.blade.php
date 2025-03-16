@@ -14,10 +14,29 @@
 
     <!-- Card Content -->
     <div class="p-4 flex flex-col flex-grow">
-        <!-- Publisher & Year -->
-        <div class="flex justify-between text-gray-400 text-sm mb-4">
-            <span>{{ $game->publisher ?? 'Publisher' }}</span>
-            <span>{{ $game->release_year ?? 'Anno' }}</span>
+        <!-- Platform & Release Date Headers -->
+        <div class="grid grid-cols-2 gap-4 text-gray-400 text-sm mb-4">
+            <!-- Platforms -->
+            <div>
+                <h3 class="text-gray-300 font-semibold mb-1">Platforms</h3>
+                <ul class="list-disc list-inside text-gray-400 text-sm space-y-1">
+                    @if (isset($game->platforms))
+                    @foreach ($game->platforms as $platform)
+                        @if (isset($platform->abbreviation))
+                        <li>{{ $platform->abbreviation }}</li>
+                        @endif
+                    @endforeach
+                    @endif
+                </ul>
+            </div>
+
+            <!-- Release Dates -->
+            <div>
+                <h3 class="text-gray-300 font-semibold mb-1">Release Date</h3>
+                @if (isset($game->release_dates[0]->human))
+                <span class="text-gray-400 text-sm space-y-1">{{ $game->release_dates[0]->human }}</span>
+                @endif
+            </div>
         </div>
 
         <!-- Spacer per allineare il bottone in basso -->

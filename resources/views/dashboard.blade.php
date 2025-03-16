@@ -27,7 +27,7 @@
             <div class="min-h-[200px] min-w-[200px] rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-700 p-4">
                 <flux:heading size="lg">{{ __('Giochi a cui stai giocando') }}</flux:heading>
                 <flux:subheading>{{ __('Attualmente non stai giocando a nessun gioco') }}</flux:subheading>
-                <flux:subheading><a href="{{ route('add-game') }}">Aggiungi gioco</a></flux:subheading>
+                <flux:subheading><a href="{{ route('search-game') }}">Aggiungi gioco</a></flux:subheading>
             </div>
             <div class="min-h-[200px] min-w-[200px] bg-sky-700 rounded-xl"></div>
             <div class="min-h-[200px] min-w-[200px] bg-sky-700 rounded-xl"></div>
