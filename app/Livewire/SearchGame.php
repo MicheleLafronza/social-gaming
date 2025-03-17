@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 use Carbon\Carbon;
 
-class CreateGame extends Component
+class SearchGame extends Component
 {
     public $gameName = '';
     public $games = [];
@@ -45,6 +45,6 @@ class CreateGame extends Component
 
     public function render()
     {
-        return view('livewire.create-game');
+        return view('livewire.search-game');
     }
 }
