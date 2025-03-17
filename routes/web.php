@@ -23,7 +23,7 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 });
 
-Route::get('/search-game', CreateGame::class)->name('search-game');
+Route::get('/search-game', CreateGame::class)->name('search.game');
 
 
 require __DIR__.'/auth.php';

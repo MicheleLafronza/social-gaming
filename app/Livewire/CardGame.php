@@ -13,7 +13,7 @@ class CardGame extends Component
     public $game;
     public $gameStatus = '';
 
-    public function addGame($gameToAddId): array
+    public function addGame($gameToAddId)
     {
 
         $twitchService = app(TwitchService::class);
@@ -28,17 +28,24 @@ class CardGame extends Component
         where id = $gameToAddId;
         ", 'text/plain')->post('https://api.igdb.com/v4/games');
         
-
-        $gametoAdd = json_decode($response->getBody()->getContents());
-
-        dd($this->gameStatus);
+        $gameToAdd = json_decode($response->getBody()->getContents());
 
         $gameToValidate = [
-            'igdb_id' => $gametoAdd[0]->id,
-            'name' => $gametoAdd[0]->name,
+            'igdb_id' => $gameToAdd[0]->id,
+            'name' => $gameToAdd[0]->name,
+            'game_state' => $this->gameStatus,
+            'cover_id' => $gameToAdd[0]->cover->image_id ?? 'null',
+            'release_date' => $gameToAdd[0]->release_dates[0]->human ?? 'null',
+
+            'screenshots_id' => isset($gameToAdd[0]->screenshots) ? json_encode(array_map(function($screenshot) {
+                return $screenshot->image_id;
+            }, $gameToAdd[0]->screenshots)) : null,
+
+            'platforms' => isset($gameToAdd[0]->platforms) ? json_encode(array_map(function($platform) {
+                return $platform->abbreviation;
+            }, $gameToAdd[0]->platforms)) : null,
+
         ];
-        
-        
     }
 
     public function render()
