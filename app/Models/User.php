@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
+use App\Models\Game;
 
 class User extends Authenticatable
 {
@@ -58,4 +59,11 @@ class User extends Authenticatable
             ->map(fn (string $nickname) => Str::of($nickname)->substr(0, 1))
             ->implode('');
     }
+
+    public function games()
+    {
+        return $this->belongsToMany(Game::class, 'user_games');
+    }
+
+
 }
