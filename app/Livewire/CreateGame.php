@@ -27,17 +27,20 @@ class CreateGame extends Component
             'Client-ID' => $twitchClientId,
             'Authorization' => 'Bearer ' . $twitchAccessToken,
         ])
-        ->get('https://api.igdb.com/v4/games', [
-            'fields' => 'name, cover.image_id, platforms.abbreviation, release_dates.human, screenshots.image_id',
-            'search' => $this->gameName,
-        ]);
+        ->withBody("
+            fields name, cover.image_id, platforms.abbreviation, release_dates.human, screenshots.image_id;
+            search \"$this->gameName\";
+        ", 'text/plain')
+        ->post('https://api.igdb.com/v4/games');
+        
         $this->games = json_decode($response->getBody()->getContents());
-        // dd($this->games);
+        
+        // Verifica se ci sono giochi trovati
         if (count($this->games) > 0) {
             return $this->games;
         } else {
             return $this->emptyGames = true;
-        }      
+        }   
     }
 
     public function render()

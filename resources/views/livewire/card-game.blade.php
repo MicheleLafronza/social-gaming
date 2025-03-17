@@ -63,7 +63,7 @@
                 <!-- Select con le opzioni -->
                 <div>
                     <label for="game-status" class="block text-sm font-medium text-gray-700">Stato del gioco</label>
-                    <select id="game-status" name="game-status" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                    <select id="game-status" wire:model="gameStatus" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
                         <option value="completed">Completato</option>
                         <option value="playing">Lo sto giocando adesso</option>
                         <option value="interested">Mi interessa</option>
@@ -72,7 +72,7 @@
                 
                 <!-- Pulsante di azione -->
                 <div class="flex justify-end">
-                    <flux:button type="submit" variant="primary">Aggiungi</flux:button>
+                    <flux:button type="submit" wire:click="addGame({{ $game->id }})" variant="primary">Aggiungi</flux:button>
                 </div>
             </div>
         </flux:modal>

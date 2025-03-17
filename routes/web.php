@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 use App\Livewire\CreateGame;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GameController;
 
 
 Route::get('/', function () {
@@ -23,5 +24,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/search-game', CreateGame::class)->name('search-game');
+
 
 require __DIR__.'/auth.php';
