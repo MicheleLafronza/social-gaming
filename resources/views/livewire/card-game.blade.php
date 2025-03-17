@@ -72,7 +72,11 @@
                 
                 <!-- Pulsante di azione -->
                 <div class="flex justify-end">
-                    <flux:button type="submit" wire:click="addGame({{ $game->id }})" variant="primary">Aggiungi</flux:button>
+                    <flux:button wire:click="addGame({{ $game->id }})" variant="primary">Aggiungi</flux:button>
+                </div>
+
+                <div wire:loading> 
+                    Sto aggiungengo il gioco..
                 </div>
             </div>
         </flux:modal>

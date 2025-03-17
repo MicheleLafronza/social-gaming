@@ -16,4 +16,13 @@
         <p class="text-lg font-bold">Nessun gioco trovato!</p>
         <p class="text-sm text-gray-500">Prova a cercare un altro gioco!</p>
     @endif
+
+    <!-- Mostra il messaggio di successo -->
+    @if (session()->has('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+    @endif
+
+    @error('gameToValidate.igdb_id') <span class="text-red-500">{{ $message }}</span> @enderror
 </div>

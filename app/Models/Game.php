@@ -13,6 +13,8 @@ class Game extends Model
         'game_state',
         'cover_id',
         'release_date',
+        'screenshots_id',
+        'platforms'
     ];
 
     protected $casts = [
