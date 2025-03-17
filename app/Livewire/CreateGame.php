@@ -28,7 +28,7 @@ class CreateGame extends Component
             'Authorization' => 'Bearer ' . $twitchAccessToken,
         ])
         ->get('https://api.igdb.com/v4/games', [
-            'fields' => 'name, cover.url, platforms.abbreviation, release_dates.human',
+            'fields' => 'name, cover.image_id, platforms.abbreviation, release_dates.human, screenshots.image_id',
             'search' => $this->gameName,
         ]);
         $this->games = json_decode($response->getBody()->getContents());
