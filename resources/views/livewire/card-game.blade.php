@@ -42,10 +42,14 @@
         <!-- Spacer per allineare il bottone in basso -->
         <div class="flex-grow"></div>
 
-        <!-- Modal Trigget -->
+        @if ($canAdd)
+        <!-- Modal Trigget solo se canAdd è true -->
         <flux:modal.trigger :name="'add-game-'.$game->id">
             <flux:button class="w-full cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition">Aggiungi gioco</flux:button>
         </flux:modal.trigger>
+        @else
+        <div class="w-full bg-green-500 text-white text-center font-semibold py-2 rounded-lg">Già presente sul tuo account</div>
+        @endif
 
         <!-- Modal -->
         <flux:modal :name="'add-game-'.$game->id" class="md:w-96">
@@ -72,12 +76,22 @@
                 
                 <!-- Pulsante di azione -->
                 <div class="flex justify-end">
-                    <flux:button wire:click="addGame({{ $game->id }})" variant="primary">Aggiungi</flux:button>
+                    <flux:button wire:click="addGame" variant="primary">Aggiungi</flux:button>
                 </div>
 
                 <div wire:loading> 
                     Sto aggiungengo il gioco..
                 </div>
+
+                @if ($errors->any())
+                    <div class="bg-red-500 text-white p-2 rounded-md mb-4">
+                        <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                        </ul>
+                    </div>
+                @endif
             </div>
         </flux:modal>
     </div>

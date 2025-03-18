@@ -62,7 +62,7 @@ class User extends Authenticatable
 
     public function games()
     {
-        return $this->belongsToMany(Game::class, 'user_games');
+        return $this->belongsToMany(Game::class, 'user_games')->withTimeStamps();
     }
 
 
