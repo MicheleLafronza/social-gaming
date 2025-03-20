@@ -12,21 +12,21 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center  flex-col">
-        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
+    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex items-center lg:justify-center  flex-col">
+        <header class="w-full text-sm mb-6 not-has-[nav]:hidden flex items-center justify-center">
             @if (Route::has('login'))
-                <nav class="flex items-center justify-end gap-4">
+                <nav class="flex items-center w-full lg:max-w-4xl max-w-[335px] justify-center gap-4 bg-neutral-950 m-5 rounded-lg p-2">
                     @auth
                         <a
                             href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
+                            class="text-neutral-50 inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] hover:bg-gray-300 border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
                         >
                             Dashboard
                         </a>
                     @else
                         <a
                             href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
+                            class="text-neutral-50 inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] hover:bg-gray-400 border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
                         >
                             Log in
                         </a>
@@ -34,7 +34,8 @@
                         @if (Route::has('register'))
                             <a
                                 href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
+                                class="text-neutral-50 inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] hover:bg-gray-400 border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
+                                >
                                 Register
                             </a>
                         @endif
@@ -43,7 +44,7 @@
             @endif
         </header>
         <div class="flex items-center justify-center p-4">
-            <main class="flex flex-col lg:min-w-[500px] max-w-[700px] bg-gray-300 p-7 rounded-lg shadow-lg">
+            <main class="flex flex-col text-center sm:text-left lg:min-w-[500px] max-w-[700px] bg-gray-300 p-7 rounded-lg shadow-lg">
                 <h1 class="text-2xl font-bold text-gray-900 text-center">Benvenuto su NERDYZ!</h1>
                 <div class="my-4 border-t border-gray-400"></div> <!-- Spacer -->
                 <div class="text-gray-800 mb-2 text-center">
@@ -60,6 +61,9 @@
                 </div>
                 <div class="text-gray-800 mb-2">
                     Una volta loggato, troverai nella <strong class="font-bold text-black">DASHBOARD</strong> una lista delle funzionalità attive attualmente, quelle che apporterò in futuro e tutte le restanti informazioni riguardanti il sito.
+                </div>
+                <div class="text-gray-800 mb-2">
+                    Per adesso non fare caso allo stile visivo del sito, ci sarà un <strong class="font-bold text-black">REFACTORING</strong> totale con le nuove versioni! L'obiettivo dell'<strong class="font-bold text-black">ALPHA TEST</strong> è quello di testare le funzionalità! 
                 </div>
                 <div class="text-gray-800 mb-2">
                     Ti ricordo che <strong class="font-bold text-black">NERDYZ!</strong> è un progetto non a scopo di lucro, sviluppato interamente da me. Ma se hai delle idee o se vorresti partecipare attivamente a questo progetto non esitare a contattarmi <strong class="font-bold text-black">michele.lafronza91@gmail.com</strong>
