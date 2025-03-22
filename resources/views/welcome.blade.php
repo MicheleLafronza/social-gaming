@@ -12,39 +12,29 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex items-center lg:justify-center  flex-col">
+    <body class="bg-[url(/public/background.webp)] max-h-screen text-[#1b1b18] flex items-center lg:justify-center  flex-col">
         <header class="w-full text-sm mb-6 not-has-[nav]:hidden flex items-center justify-center">
             @if (Route::has('login'))
-                <nav class="flex items-center w-full lg:max-w-4xl max-w-[335px] justify-center gap-4 bg-neutral-950 m-5 rounded-lg p-2">
+                <nav class="flex items-center w-full lg:max-w-4xl max-w-[335px] justify-center gap-4 bg-[#FFFFFF] m-5 rounded-lg p-2">
                     @auth
-                        <a
-                            href="{{ url('/dashboard') }}"
-                            class="text-neutral-50 inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] hover:bg-gray-300 border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                        >
-                            Dashboard
-                        </a>
+                        <flux:button variant="primary" href="{{ route('dashboard') }}">
+                            Sei già loggato, entra nel sito!
+                        </flux:button>
                     @else
-                        <a
-                            href="{{ route('login') }}"
-                            class="text-neutral-50 inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] hover:bg-gray-400 border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                        >
-                            Log in
-                        </a>
-
+                        <flux:button variant="primary" href="{{ route('login') }}">
+                            Log In
+                        </flux:button>
                         @if (Route::has('register'))
-                            <a
-                                href="{{ route('register') }}"
-                                class="text-neutral-50 inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] hover:bg-gray-400 border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                                >
-                                Register
-                            </a>
+                            <flux:button variant="primary" href="{{ route('register') }}">
+                                Registrati
+                            </flux:button>
                         @endif
                     @endauth
                 </nav>
             @endif
         </header>
         <div class="flex items-center justify-center p-4">
-            <main class="flex flex-col text-center sm:text-left lg:min-w-[500px] max-w-[700px] bg-gray-300 p-7 rounded-lg shadow-lg">
+            <main class="flex flex-col text-center sm:text-left lg:min-w-[500px] max-w-[700px] bg-[#FFFFFF] p-7 rounded-lg shadow-lg">
                 <h1 class="text-2xl font-bold text-gray-900 text-center">Benvenuto su NERDYZ!</h1>
                 <div class="my-4 border-t border-gray-400"></div> <!-- Spacer -->
                 <div class="text-gray-800 mb-2 text-center">
