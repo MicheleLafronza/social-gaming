@@ -71,7 +71,7 @@ new class extends Component {
     }
 }; ?>
 
-<section class="w-full">
+<section class="w-full bg-white rounded-xl p-4">
     @include('partials.settings-heading')
 
     <x-settings.layout :heading="__('Profilo')" :subheading="__('Aggiorna il tuo nickname e la tua email')">

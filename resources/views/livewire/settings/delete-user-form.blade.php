@@ -22,7 +22,7 @@ new class extends Component {
     }
 }; ?>
 
-<section class="mt-10 space-y-6">
+<section class="mt-10 space-y-6 bg-white rounded-xl p-4">
     <div class="relative mb-5">
         <flux:heading>{{ __('Cancella account') }}</flux:heading>
         <flux:subheading>{{ __('Cancella il tuo account tutte le info e i dati') }}</flux:subheading>
