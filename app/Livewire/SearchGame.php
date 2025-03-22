@@ -34,6 +34,8 @@ class SearchGame extends Component
         ->post('https://api.igdb.com/v4/games');
         
         $this->games = json_decode($response->getBody()->getContents());
+
+        
         
         // Verifica se ci sono giochi trovati
         if (count($this->games) > 0) {

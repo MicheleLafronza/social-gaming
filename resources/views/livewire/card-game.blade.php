@@ -1,4 +1,4 @@
-<div class="bg-gray-800 text-white rounded-xl shadow-lg overflow-hidden flex flex-col h-full">
+<div class="bg-white text-black rounded-xl shadow-lg overflow-hidden flex flex-col h-full">
     <!-- Header with Title and Small Cover -->
     <div class="flex items-center p-4 space-x-4">
         <!-- Small Cover Image -->
@@ -15,11 +15,11 @@
     <!-- Card Content -->
     <div class="p-4 flex flex-col flex-grow">
         <!-- Platform & Release Date Headers -->
-        <div class="grid grid-cols-2 gap-4 text-gray-400 text-sm mb-4">
+        <div class="grid grid-cols-2 gap-4 text-sm mb-4">
             <!-- Platforms -->
             <div>
-                <h3 class="text-gray-300 font-semibold mb-1">Platforms</h3>
-                <ul class="list-disc list-inside text-gray-400 text-sm space-y-1">
+                <h3 class="font-semibold mb-1">Platforms</h3>
+                <ul class="list-disc list-inside text-sm space-y-1">
                     @if (isset($game->platforms))
                     @foreach ($game->platforms as $platform)
                         @if (isset($platform->abbreviation))
@@ -32,9 +32,9 @@
 
             <!-- Release Dates -->
             <div>
-                <h3 class="text-gray-300 font-semibold mb-1">Release Date</h3>
+                <h3 class="font-semibold mb-1">Release Date</h3>
                 @if (isset($game->release_dates[0]->human))
-                <span class="text-gray-400 text-sm space-y-1">{{ $game->release_dates[0]->human }}</span>
+                <span class="text-sm space-y-1">{{ $game->release_dates[0]->human }}</span>
                 @endif
             </div>
         </div>
@@ -45,7 +45,7 @@
         @if ($canAdd)
         <!-- Modal Trigget solo se canAdd è true -->
         <flux:modal.trigger :name="'add-game-'.$game->id">
-            <flux:button class="w-full cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition">Aggiungi gioco</flux:button>
+            <flux:button variant="primary" class="w-full cursor-pointer font-semibold py-2 rounded-lg transition">Aggiungi gioco</flux:button>
         </flux:modal.trigger>
         @else
         <div class="w-full bg-green-500 text-white text-center font-semibold py-2 rounded-lg">Già presente sul tuo account</div>
